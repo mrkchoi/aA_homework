@@ -25,3 +25,4 @@ class Artist < ApplicationRecord
     track_count
   end
 end
+
