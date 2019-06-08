@@ -1,0 +1,30 @@
+<div class="subheader">
+  <h2><%= @band.name %></h2>
+
+  <div class="subheader__nav">
+    <a href="<%= new_band_album_url(@band) %>" class="ui button">+ Add album</a>
+    <a href="<%= edit_band_url %>" class="ui button">Edit band</a>
+    <form action="<%= band_url(@band) %>" method="POST" class="ui form">
+      <%= form_auth %>
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete band" class="ui button red basic">
+  </form>
+  </div>
+
+</div>
+
+<div class="band-albums__main">
+  <ul>
+    <% if @band.albums %>
+      <% @band.albums.each do |album| %>
+
+      <li>
+        <a href="<%= album_url(album) %>"><%= album.title %></a>
+      </li>
+
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+

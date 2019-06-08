@@ -1,0 +1,58 @@
+<h2>Edit album</h2>
+
+<div class="error__container">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <div class="ui warning message">
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+
+<form action="<%= album_url(@album) %>" method="POST" class="ui form">
+  <%= form_auth %>
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label>Title: 
+    <input type="text" name="album[title]" value="<%= @album.title %>">
+    
+  </label>
+
+  <br><br>
+ 
+  <label>Band: 
+    <select name="album[band_id]">
+      <% @bands.each do |band| %>
+        <option 
+          value="<%= band.id %>"
+          <%= 'selected' if band.id == @album.band_id %>  
+        >
+          <%= band.name %>
+        </option>
+      <% end %>
+    </select>
+  </label>
+
+  <br><br>
+  
+  <label>Year: 
+    <input type="number" name="album[year]" value="<%= @album.year %>">
+  </label>
+
+  <br><br>
+
+  <label>Album Type:  &nbsp;&nbsp;
+    <input type="radio" name="album[studio_album]" value="t" <%= @album.studio_album == 't' ? 'checked' : '' %>> Studio &nbsp;&nbsp;
+    <input type="radio" name="album[studio_album]" value="f" <%= @album.studio_album == 'f' ? 'checked' : '' %>> Live&nbsp;&nbsp;
+  </label>
+
+  
+
+  <br><br>
+
+  <input type="submit" value="Update album" class="ui button primary">
+</form>
+

@@ -1,0 +1,54 @@
+<h2>New album</h2>
+<h3><%= @bands.find_by(id: params[:band_id]).name %></h3>
+
+<div class="error__container">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <div class="ui warning message">
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+
+<form action="<%= albums_url %>" method="POST" class="ui form">
+  <%= form_auth %>
+
+  <label>Title: 
+    <input type="text" name="album[title]">
+  </label>
+
+  <br><br>
+ 
+  <label>Band: 
+    <select name="album[band_id]">
+      <% @bands.each do |band| %>
+        <option 
+          value="<%= band.id %>"
+          <%= 'selected' if band.id == @bands.find_by(id: params[:band_id]).id %>  
+        >
+          <%= band.name %>
+        </option>
+      <% end %>
+    </select>
+  </label>
+
+  <br><br>
+  
+  <label>Year: 
+    <input type="number" name="album[year]">
+  </label>
+
+  <br><br>
+
+  <label>Album Type:  &nbsp;&nbsp;
+    <input type="radio" name="album[studio_album]" value="t" checked> Studio &nbsp;&nbsp;
+    <input type="radio" name="album[studio_album]" value="f"> Live&nbsp;&nbsp;
+  </label>
+  <br><br>
+
+  <input type="submit" value="Create album" class="ui button primary">
+</form>
+

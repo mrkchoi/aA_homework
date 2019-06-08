@@ -1,0 +1,30 @@
+<h2>Sign In</h2>
+
+<div class="error__container">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <div class="ui warning message">
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+
+<form action="<%= session_url %>" method="POST" class="ui form">
+  <%= form_auth %>
+
+  <label>Email:
+    <input type="text" name="user[email]">
+  </label>
+
+  <br><br>
+
+  <label>Password:
+    <input type="password" name="user[password]">
+  </label>
+
+  <br><br>
+  <input type="submit" value="Sign In" class="ui button primary" class="ui button primary">
+</form>

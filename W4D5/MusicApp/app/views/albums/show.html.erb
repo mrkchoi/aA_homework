@@ -1,0 +1,68 @@
+
+<div class="subheader">
+  <h2>
+    <a href="<%= band_url(@band) %>"><%= @band.name %></a>
+  </h2>
+
+  <div class="subheader__nav">
+    <a href="<%= new_album_track_url(@album) %>" class="ui button">+ Add track</a>
+    <a href="<%= edit_album_url %>" class="ui button">Edit album details</a>
+    <form action="<%= album_url(@album) %>" method="POST" class="ui form">
+      <%= form_auth %>
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete album" class="ui button red basic">
+  </form>
+  </div>
+
+</div>
+
+<h3><%= @album.title %></h3>
+
+<ul>
+  <li>Year: <%= @album.year %></li>
+  <li>Album type: <%= @album.studio_album == 't' ? 'Studio' : 'Live' %></li>
+</ul>
+
+<h4>Track list</h4>
+
+
+
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>Ord</th>
+      <th>Title</th>
+      <th>Track Type</th>
+      <th>Lyrics</th>
+      <th>Update</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @album.tracks.order('tracks.ord ASC').each do |track| %>
+      <tr>
+        <td data-label="Ord"><%= track.ord %></td>
+        <td data-label="Title"><%= track.title %></td>
+        <td data-label="Track Type"><%= track.track_type %></td>
+        <td data-label="Lyrics"><%= track.lyrics %></td>
+        <td data-label="Update" class="track__edit-row">
+          <form action="<%= track_url(track) %>" method="post" class="track-form">
+            <input type="hidden" name="_method" value="delete">
+            <%= form_auth %>
+
+            <input type="submit" value="Delete" class="ui button tiny">
+            
+          </form>
+
+          <a href="<%= edit_track_url(track.id) %>" class="ui button tiny">Update</a>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+
+
+

@@ -1,0 +1,60 @@
+<h2>Edit track</h2>
+<h3><%= @albums.find_by(id: params[:album_id]).title %></h3>
+
+<div class="error__container">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <div class="ui warning message">
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+
+<form action="<%= tracks_url %>" method="POST" class="ui form">
+  <%= form_auth %>
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label>Title: 
+    <input type="text" name="track[title]" value="<%= @track.title %>">
+  </label>
+
+  <br><br>
+ 
+  <label>Album: 
+    <select name="track[album_id]">
+      <% @albums.each do |album| %>
+        <option 
+          value="<%= album.id %>"
+          <%= 'selected' if album.id == @albums.find_by(id: params[:album_id]).id %>  
+        >
+          <%= album.title %>
+        </option>
+      <% end %>
+    </select>
+  </label>
+
+  <br><br>
+  
+  <label>Ord: 
+    <input type="number" name="track[ord]">
+  </label>
+
+  <br><br>
+
+  <label>Track Type:  &nbsp;&nbsp;
+    <input type="radio" name="track[track_type]" value="Regular" checked> Regular &nbsp;&nbsp;
+    <input type="radio" name="track[track_type]" value="Bonus"> Bonus&nbsp;&nbsp;
+  </label>
+  <br><br>
+
+  <label for="lyrics">Lyrics</label>
+  <textarea name="track[lyrics]" id="lyrics" cols="30" rows="10"></textarea>
+
+  <br><br>
+
+  <input type="submit" value="Add Track" class="ui button primary">
+</form>
+

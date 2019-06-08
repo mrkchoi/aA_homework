@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+  <div class="ui container">
+    <header class="header__container">
+      <div class="header__logo">
+        <h1><%= link_to 'Music App', bands_url %></h1>  
+        
+      </div>
+
+      <div class="header__nav">
+        <% if current_user %>
+          <p class="header__nav--msg">Currently logged in as: <%= current_user.email %></p>
+          <form action="<%= session_url %>" method="POST" class="ui form">
+            <input type="hidden" name="_method" value="DELETE">
+            <%= form_auth %>
+            
+            <input type="submit" value="Logout" class="ui button red basic">
+          </form>
+        <% else %>
+          <a href="<%= new_session_url %>" class="ui button">Sign In</a>
+          <a href="<%= new_user_url %>" class="ui button">Sign Up</a>
+        <% end %>
+      </div>
+    </header>
+    
+    <div class="ui divider"></div>
+    
+    <main class="main">
+      <%= yield %>
+    </main>
+
+    <footer class="footer">
+      
+    </footer>
+  </div>
+  </body>
+</html>
