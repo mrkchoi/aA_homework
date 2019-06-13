@@ -117,3 +117,13 @@ herd.forEach(el => {
 // What should the return value of dinerBreakfast be ?
 //   Which function should take in the additional food as an argument ?
 //     Make sure you can call it multiple times and keep chaining on more breakfast foods!
+
+function dinerBreakfast() {
+  let food = 'scrambled eggs and bacon';
+  console.log(`I'd like ${food} please.`);
+
+  return function(newFood) {
+    food += ` and ${newFood}`;
+    console.log(`I'd like ${food} please`);
+  };
+}
