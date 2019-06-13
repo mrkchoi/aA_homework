@@ -8,6 +8,22 @@
 // undefined
 // Make sure it works before moving on!
 
+function titleize(arr, cb) {
+  arr = arr.map(el => {
+    return `Mx. ${el} Jingleheimer Schmidt`;
+  });
+
+  return cb(arr);
+}
+let printCallback = (arr) => {
+  arr.forEach(el => {
+    console.log(el);
+  });
+};
+
+titleize(["Mary", "Brian", "Leo"], printCallback);
+
+
 // Phase II: Constructors, Prototypes, and this
 // First write a constructor function for an elephant.Each elephant should have a name, height(in inches), and array of tricks in gerund form(e.g. "painting a picture" rather than "paint a picture").
 
@@ -39,6 +55,51 @@
 // Once you have this function, call forEach on the herd and pass it in as the callback without invoking it.Elephants galore!
 
 // 🐘 🐘 🐘 🐘 🐘 🐘 🐘 🐘
+
+class Elephant {
+  constructor(name, height, tricks) {
+    this.name = name;
+    this.height = height;
+    this.tricks = tricks;
+  }
+
+  trumpet() {
+    console.log(`${this.name} the elephant goes 'phrRRRRRRRRR'`);
+  }
+
+  grow() {
+    this.height += 12;
+  }
+
+  addTrick(trick) {
+    this.tricks.push(trick);
+  }
+
+  play() {
+    let randValueIdx = Math.floor(Math.random() * this.tricks.length);
+    console.log(`${this.name} is ${this.tricks[randValueIdx]}`);
+  }
+
+}
+
+Elephant.paradeHelper = function(elephant) {
+  console.log(`${elephant.name} is trotting by!`);
+};
+
+
+let e1 = new Elephant('Tim', 100, ['painting a picture', 'riding a bicycle'] ); 
+
+
+let ellie = new Elephant("Ellie", 185, ["giving human friends a ride", "playing hide and seek"]);
+let charlie = new Elephant("Charlie", 200, ["painting pictures", "spraying water for a slip and slide"]);
+let kate = new Elephant("Kate", 234, ["writing letters", "stealing peanuts"]);
+let micah = new Elephant("Micah", 143, ["trotting", "playing tic tac toe", "doing elephant ballet"]);
+
+let herd = [ellie, charlie, kate, micah];
+
+herd.forEach(el => {
+  Elephant.paradeHelper(el);
+});
 
 // Phase IV: Closures
 // Let's make a function dinerBreakfast. Ultimately, we want it to return an anonymous closure, which we will be able to use to keep adding breakfast foods to our initial order.
