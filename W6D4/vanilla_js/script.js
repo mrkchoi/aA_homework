@@ -30,11 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     let value = input.value;
     let li = document.createElement("li");
+
     li.textContent = value;
-    console.log(listSF);
     listSF.appendChild(li);
     input.value = '';
-
   }
 
 
@@ -43,6 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- your code here!
 
+  let photoBtn = document.querySelector(".photo-show-button");
+
+  photoBtn.addEventListener('click', toggleForm);
+
+  function toggleForm(e) {
+    e.preventDefault();
+
+    let photoFormContainer = document.querySelector('.photo-form-container');
+    let formClasses = Array.from(photoFormContainer.classList);
+
+    if (formClasses.includes('hidden')) {
+      photoFormContainer.className = 'photo-form-container';
+    } else {
+      photoFormContainer.className = 'photo-form-container hidden';
+    }
+  }
 
 
 });
