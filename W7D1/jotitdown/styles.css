@@ -1,0 +1,143 @@
+/*****************************  
+GLOBAL
+******************************/
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.main__wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*****************************  
+HEADER
+******************************/
+.header {
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__logo-link {
+  text-decoration: none;
+  color: black;
+}
+.header__logo-img {
+  max-width: 30px;
+  max-height: 30px;
+  margin-right: .4rem;
+}
+
+.header__logo {
+  font-size: 1.6rem;
+}
+
+
+/*****************************  
+NAV
+******************************/
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav__navbar {
+  display: flex;
+  align-items: center;
+}
+
+.nav__navbar a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  padding: 1rem;
+  text-transform: uppercase;
+
+}
+
+
+/*****************************  
+NAV AUTH
+******************************/
+.nav__auth {
+  display: flex;
+  align-items: center;
+}
+
+.nav__auth-profile {
+  display: flex;
+  align-items: center;
+}
+
+.nav__auth-btns a {
+  background-color: white;
+  border: 1px solid #00a82d;
+  color: #00a82d;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: .4rem;
+  border-radius: 2px;
+  /* box-shadow: 3px 3px 10px rgba(0,0,0,.12); */
+  margin-left: .5rem;
+}
+
+/*****************************  
+HERO
+******************************/
+.hero {
+  background-image: url("./splash.jpg");
+  min-height: 600px;
+  position: relative;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.3);
+}
+
+.hero__content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__content h2 {
+  font-size: 3.6rem;
+  text-align: center;
+  color: white;
+}
+
+.hero__cta {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: .4rem;
+  border-radius: 2px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,.12);
+  cursor: pointer;
+  font-size: 1.2rem;
+  /* background-color: rgba(255,255,255,.12); */
+}
