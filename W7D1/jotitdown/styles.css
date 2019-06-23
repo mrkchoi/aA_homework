@@ -58,9 +58,16 @@ NAV
   text-decoration: none;
   color: black;
   display: inline-block;
-  padding: 1rem;
+  padding: .4rem .4rem;
+  margin-left: .6rem;
   text-transform: uppercase;
+  transition: all 200ms ease-in;
+  border-bottom: 2px solid transparent;
 
+}
+
+.nav__navbar a:hover {
+  border-bottom: 2px solid rgba(0,0,0,.5);
 }
 
 
@@ -88,6 +95,13 @@ NAV AUTH
   border-radius: 2px;
   /* box-shadow: 3px 3px 10px rgba(0,0,0,.12); */
   margin-left: .5rem;
+  transition: all 100ms ease-in;
+
+}
+
+.nav__auth-btns a:hover {
+  background-color: #00a82d;
+  color: white;
 }
 
 /*****************************  
@@ -134,10 +148,16 @@ HERO
   font-size: 1rem;
   text-transform: uppercase;
   display: inline-block;
-  padding: .4rem;
+  padding: .6rem .8rem;
   border-radius: 2px;
   box-shadow: 3px 3px 10px rgba(0,0,0,.12);
   cursor: pointer;
   font-size: 1.2rem;
   /* background-color: rgba(255,255,255,.12); */
+  transition: all 100ms ease-in;
+}
+
+.hero__cta:hover {
+  background-color: white;
+  color: black;
 }
