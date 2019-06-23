@@ -1,0 +1,100 @@
+/************************  
+MAIN
+*************************/
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.main__container {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+
+/************************  
+CLOCK
+*************************/
+.clock__container {
+  width: 575px;
+  height: 120px;
+  background-color: orange;
+  color: white;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+
+.clock__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clock__inner h3, 
+.clock__inner p {
+  font-size: 30px;
+  margin: 0;
+}
+
+.clock__inner:first-of-type {
+  margin-bottom: 12px; 
+}
+
+/************************  
+TABS
+*************************/
+
+.tab__main {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.tabheader_container {
+  
+}
+
+.tab_numbers {
+  z-index: 99;
+}
+
+.tabheader_container ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 0;
+  margin: 0;
+}
+
+.tab_numbers {
+  background-color: lightblue;
+  display: inline-block;
+  font-size: 18px;
+  padding: 5px;
+  border: 2px solid black;
+  flex: 1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.tab_numbers:first-of-type {
+  position: relative;
+  z-index: 99;
+}
+
+.tab_content {
+  position: relative;
+  top: -2px;
+  background-color: lightblue;
+  border: 2px solid black;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.tab_content p {
+  padding: 75px 0;
+}
