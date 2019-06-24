@@ -1,18 +1,20 @@
 import { ADD_FRUIT, CLEAR } from './actions';
 
-export default fruitReducer = (state = {}, action) => {
+const _defaultState = {
+  fruits: []
+};
+
+const reducer = (oldState = _defaultState, action) => {
   switch(action.type) {
     case ADD_FRUIT:
       return {
-        fruits: [...oldState, action.fruit]
+        fruits: [...oldState.fruits, action.fruit]
       }
     case CLEAR:
-      return {
-        fruits: []
-      }
+      return _defaultState;
     default: 
-      return state;
+      return oldState;
   }
 };
 
-export default fruitReducer;
+export default reducer;

@@ -18,6 +18,6 @@ const reducer = (oldState = _defaultState, action) => {
     default:
       return oldState;
   }
-}
+};
 
 export default reducer;

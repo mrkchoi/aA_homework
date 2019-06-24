@@ -1,5 +1,6 @@
-const store = {
-  fruits: []
-}
+import { createStore } from 'redux';
+import reducer from './reducer.js';
 
-export default store;
+const Store = createStore(reducer);
+
+export default Store;
